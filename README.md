@@ -38,10 +38,7 @@ First you need to build the docker image for the preprocessing:
 Replace the `/path/to/repo` with a path to your local version of this repository.
 The build process of this image may take multiple minutes. In the meantime, you can
 customize the docker-compose-preprocessing.yml located in the application directory
-of this repository. You need to change the path before the colon in line 15, 22 and
-23 to an absolute path to the `application/database`, `application/import` and the
-`application/export` directory of this repository.
-You can also change the command line parameters in line 20 after `idt-preprocessing.py` 
+of this repository. Change the command line parameters in line 23 after `idt-preprocessing.py` 
 to fit your needs. Usage:
 ```
 itd-preprocessing.py [-h] (-w SUBSET | -j JSON FILE | -p MANIFEST.JSON) [-n n] [-t t]
@@ -83,8 +80,9 @@ options:
   -L, --lemmatization   Should lemmatization be applied before the creation of the
                         topic representation. Default: False
 ```
-Once the docker image is built, and you have finished customizing the `docker-compose-preprocessing.yml`,
-run the following command to start preprocessing.
+Once the docker image is built, and you have customized the command for the preprocessing
+in the `docker-compose-preprocessing.yml`, create an import, export and database directory
+inside the application directory and run the following command to start preprocessing.
 ```
 # docker compose -f <path/to/repository>/application/docker-compose-preprocessing.yml up
 ```
@@ -102,7 +100,7 @@ You can remove the docker container with.
 ### Web Application
 As with preprocessing, the docker image must first be built:
 ```
-# docker build -t idt-app /path/to/repo/source/frontend 
+# docker build -t idt-app /path/to/repo/source/web-app 
 ```
 While building the docker image you can modify the `docker-compose.yml` located
 in the `application` directory. All you need to do here is to change the path before
