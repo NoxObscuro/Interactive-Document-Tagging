@@ -1,0 +1,32 @@
+# For apche_beam, which need to be installed with no dependcies.
+crcmod<2.0,>=1.7
+fastavro<2,>=0.23.6
+fasteners<1.0,>=0.3
+grpcio!=1.48.0,<2,>=1.33.1
+hdfs<3.0.0,>=2.1.0
+httplib2<0.21.0,>=0.8
+objsize<0.7.0,>=0.6.1
+orjson<4.0
+proto-plus<2,>=1.7.1
+protobuf<4,>3.12.2
+pydot<2,>=1.2.0
+pymongo<4.0.0,>=3.8.0
+zstandard<1,>=0.18.0
+cloudpickle~=2.2.1
+
+# For the Wikipedia dataset from Hugging Face
+datasets == 2.10.0
+mwparserfromhell == 0.6.4
+
+# dependencie for apache_beam, multiprocess and datasets
+dill == 0.3.6
+multiprocess == 0.70.14
+
+# Fort Topic Modeling
+bertopic == 0.14.0
+
+# For Keyword extraction
+keybert == 0.7.0
+
+# For elastic Search
+elasticsearch==7.17.9

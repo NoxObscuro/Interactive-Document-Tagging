@@ -1,0 +1,93 @@
+:root {
+	--div_color: #ddd;
+	--margin: 10px
+}
+
+h1 {
+	font-family: helvetica;
+	font-size: 22;
+}
+
+/* Flexbox for figure 3-6 */
+.content {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: stretch;
+	padding: 10px;
+	height: calc(100vh - 3em - 8*10px);
+	gap: 10px;
+}
+
+/* Column for Statistics */
+.column-left {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	order: 1;
+	flex: 3 3 25%;
+	gap: 10px;
+}
+
+
+/* All Figures */
+.figure-2, .figure-3, .figure-4, .figure-5, .figure-6 {
+	padding: 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #eee;
+	text-align: center;
+	border-radius:5px;
+}
+
+/* Header */
+.figure-2 {
+	height: 3em;
+	margin: 10px;
+	width: calc(100% - 2*10px);
+}
+
+/* Cluster Visualisation */
+.figure-5 {
+	order: 2;
+	flex: 4 4 50%;
+}
+
+/* Single Documentview or Tagview */
+.figure-6 {
+	align-items: flex-start;
+	flex-direction: column;
+	order: 3;
+	flex: 3 3 25%;
+}
+
+/* Part of column-left */
+.figure-3, .figure-4 {
+	width: 100%;
+}
+
+.figure-3 {
+	height: 3em;
+}
+
+.figure-4 {
+	height:100%;
+	display: block;
+	scroll-behavior: smooth;
+  overflow-y: auto; /* Add vertical scrollbar */
+}
+
+
+/* For Small Screens */
+@media screen and (max-width: 350px) {
+	.content {
+		flex-direction: column;
+	}
+	.column-left {
+		order: 2;
+	}
+	.figure-5 {
+		order:1
+	}
+}

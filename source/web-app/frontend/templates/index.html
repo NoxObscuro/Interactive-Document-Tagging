@@ -1,0 +1,60 @@
+{% extends base %}
+{% block preamble %}
+    <link rel="stylesheet" href="document_tagger/static/css/styles.css"/>
+{% endblock %}
+
+{% block contents %}
+
+    <div class="figure-2"><h1>Interactive Document Tagging</h1></div>
+    <div class="content">
+        <div class="column-left">
+            <div class="figure-3">
+                <p>
+                    {{ embed(roots.bar_chart_toggle) }}
+                </p>
+            </div>
+            <div class="figure-4">
+                <p>
+                    {{ embed(roots.keywords_bar_chart) }}
+                    {{ embed(roots.tag_bar_chart) }}
+                </p>
+            </div>
+        </div>
+        <div class="figure-5">
+            <p>
+                {{ embed(roots.cluster_plot) }}
+            </p>
+        </div>
+        <div class="figure-6">
+            <p>
+                {{ embed(roots.document_view) }}
+                {{ embed(roots.tags_menu) }}
+            </p>
+        </div>
+    </div>
+{% endblock %}
+
+
+<!--
+-------------------------------------------------------------------------------
+|                                     2                                       |
+|-------------------------+-------------------------+-------------------------|
+|                         |                         |                         |
+|           3             |                         |                         |
+|                         |                         |                         |
+|-------------------------|                         |                         |
+|                         |                         |                         |
+|                         |                         |                         |
+|                         |                         |                         |
+|                         |                         |                         |
+|                         |            5            |             6           |
+|                         |                         |                         |
+|           4             |                         |                         |
+|                         |                         |                         |
+|                         |                         |                         |
+|                         |                         |                         |
+|                         |                         |                         |
+|                         |                         |                         |
+|                         |                         |                         |
+--------------------------+-------------------------+--------------------------
+-->
