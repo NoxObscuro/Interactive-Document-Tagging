@@ -46,8 +46,7 @@ class DocumentViewWidget():
         if url is None or url == "":
             self.article_text_headline.update(text=title)
         else:
-            self.article_text_headline.update(
-                text=f'<a href="{url}">{title}</a>')
+            self.article_text_headline.update(text=f'<a href="{url}" target="_blank" rel="noopener noreferrer">{title}</a>')
         self.article_text_body.update(text=text)
 
 
