@@ -8,7 +8,7 @@ are Alan Kniep, Julia Janßen, Maja Lingl, Valerie Bartel and Vanessa Maeder.
 2. Preprocessing
 3. Backend
 4. Frontend
-    4.1 Languages and Tools
+    * Languages and Tools
     4.2 Bokeh for Visualisation
 5. Getting started
 
