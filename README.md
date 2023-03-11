@@ -3,6 +3,15 @@ This project was created as part of the project "Anwendungen der künstlichen In
 in the winter semester 2022/2023 at the University of Hamburg. Authors of this project
 are Alan Kniep, Julia Janßen, Maja Lingl, Valerie Bartel and Vanessa Maeder.
 
+## Outline
+1. Use case and functionality
+2. Preprocessing
+3. Backend
+4. Frontend
+4.1 Languages and Tools
+4.2 Bokeh for Visualisation
+5. Getting started
+
 ## Use case and functionality
 The goal of our project is to cluster large quantities of documents or articles
 according to their content, and to visualize these clusters to get a fast overview
@@ -16,7 +25,7 @@ the document text and title (including a direct link to the article) are display
 selecting only one article. If several documents are selected, user-created
 tags are shown with an option to filter the tags and create a new tag.
 
-![Screenshot of the web application](images/screenshot.png "Screenshot of the web application")
+![Screenshot of the web application](screenshots/Mockup1.jpg "Screenshot of the web application")
 
 This project is divided into three parts: the [preprocessing](#Preprocessing), the 
 [backend](#Backend) and the [frontend](#Frontend). 
@@ -87,6 +96,8 @@ words that have the highest similarity with the document according to cosine sim
 For this purpose, the cosine of the angle between the vector of the respective word
 and the vector of the corresponding document is calculated. The higher this value,
 the better the word represents the corresponding document.
+
+For more information on `keyBERT`please check  [https://maartengr.github.io/KeyBERT/](https://maartengr.github.io/KeyBERT/)
 
 
 ## Backend
