@@ -9,7 +9,7 @@ are Alan Kniep, Julia Janßen, Maja Lingl, Valerie Bartel and Vanessa Maeder.
 3. Backend
 4. Frontend
     * Languages and Tools
-    4.2 Bokeh for Visualisation
+   4.2 Bokeh for Visualisation
 5. Getting started
 
 ## Use case and functionality
