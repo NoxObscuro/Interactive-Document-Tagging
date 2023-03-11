@@ -4,13 +4,13 @@ in the winter semester 2022/2023 at the University of Hamburg. Authors of this p
 are Alan Kniep, Julia Janßen, Maja Lingl, Valerie Bartel and Vanessa Maeder.
 
 ## Outline
-1. [Use case and functionality](#Use-case-and-functionality)
-2. [Preprocessing](#Preprocessing)
-3. [Backend](#Backend)
-4. [Frontend](#Frontend)
-   * [Languages and Tools](#Languages-and-Tools)
-   * [Bokeh for Visualisation](#Bokeh-for-Visualistation)
-5. [Getting started](#Getting-started)
+1. [Use case and functionality](#use-case-and-functionality)
+2. [Preprocessing](#preprocessing)
+3. [Backend](#backend)
+4. [Frontend](#frontend)
+   * [Languages and Tools](#languages-and-tools)
+   * [Bokeh for Visualisation](#bokeh-for-visualisation)
+5. [Getting started](#getting-started)
 
 ## Use case and functionality
 The goal of our project is to cluster large quantities of documents or articles
