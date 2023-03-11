@@ -13,15 +13,16 @@ RUN mkdir /data/export
 RUN bash -c "apt update && apt install -y gcc 2>&1 1> /dev/null"
 
 COPY requirements.txt /tmp/
-RUN pip install --upgrade -qqq pip
-RUN pip install --no-dependencies -qqq apache_beam==2.45.0
-RUN pip install --no-cache-dir -qqq -r /tmp/requirements.txt
-RUN pip install --upgrade -qqq dill==0.3.6
-RUN pip install --upgrade -qqq multiprocess==0.70.14
+RUN bash -c "pip install -qqq --upgrade pip 2> /dev/null"
+RUN bash -c "pip install -qqq --no-dependencies apache_beam==2.45.0 2> /dev/null"
+RUN bash -c "pip install -qqq --no-cache-dir -r /tmp/requirements.txt 2> /dev/null"
+RUN bash -c "pip install -qqq --upgrade dill==0.3.6 2> /dev/null"
+RUN bash -c "pip install -qqq --upgrade multiprocess==0.70.14 2> /dev/null"
 
 COPY ./main.py ./main.py
 COPY ./key_word_extraction.py ./key_word_extraction.py
 COPY ./topic_modeling.py ./topic_modeling.py
+COPY ./create_dataset.py ./create_dataset.py
 COPY ./create_database.py ./create_database.py
 
 RUN chown -R $USERNAME:$USERNAME /data
