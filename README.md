@@ -31,25 +31,62 @@ create tags and assign them to a set of documents.
 
 
 ## Preprocessing
-The goal of preprocessing is to cluster a data set of documents or articles based
-on their content. Each cluster then corresponds to a topic, which is described with
-a set of keywords. 
+The goal of preprocessing is to load the documents, cluster them and extract a
+given number of keywords for each document.
 
+The first step is to load the documents, which can be done either by loading the
+prebuilt Wikipedia dataset from Hugging Face or by parsing from a JSON file specified
+by the user, which should provide the same features as the Wikipedia dataset:
+ - title
+ - text 
+ - url
+ - id
 
-  
- - Document loading (Dataset: Wikipedia)
- - Dataset preparation
-    - filter most common words
-    - Stopword filtering
- - Keyword extraction via KeyBert
- - Topic modeling (BERTopic)
-    - Document embeding via Sentence transformer
-    - Dimension reduction via umap (keeps lcoal and global structure quiet well)
-    - Clustering via HDBScan (density-based approach)
-    - Create Topic representation
-      - Merge all Documents of a Cluster to a single document
-      - Create a Bag-Of-Words from this document
-      - Use c-TF-IDF to identefy the words that are important to the specific Cluster/Topic
+These features are then extended during preprocessing by a topic dictionary, which
+indicates for each document the probability with which it belongs to which topic
+and the x and y coordinates of each document for the clustering plot and a list of
+keyword dictionaries.
+
+To do this, we first use a technique called *topic modelling* to determine which
+topics can be extracted from the corpus of documents. For this, we use the `BERTopic`
+Python package by Maarten Grootendorst. The topic modelling process of `BERTopic`
+can be divided into the following four steps:
+
+1. **Document embedding**: First, the documents, which are represented by a string
+of text, have to be transformed into a numeric vector space. For this purpose, `BERTopic`
+uses so-called *Sentence Transformers*, which by default use the first 512 tokens
+and generate vectors with several hundred dimensions.
+
+2. **Dimension Reduction**: In order to cluster the documents in a senseful way,
+the vectors generated in the previous step have to be transformed into a smaller,
+here two-dimensional, vector space. For this purpose, `UMAP` is used because, according
+to the author of `BERTopic`, this algorithm keeps some of the local and the global
+structure of the vectors.
+
+3. **Clustering**: In this step, the two-dimensional vectors of the documents are
+clustered using the `HDBSCAN` algorithm. This is used for two main reasons: Firstly,
+it is able to detect outliers and does not force them into a cluster where they may
+not belong and secondly, it works with a density based approach which allows clusters
+in different shapes.
+
+4. **Topic Representation**: Each cluster is considered a topic. To show the user
+what a given topic is about, a label is generated for each topic. To do this, all
+documents in a cluster are first concatenated and converted into a vector of variable
+length using the *bag of words* approach. With the *bag of words* approach, the nth
+component of the resulting vector indicates how often the nth word occurs in the
+document. Once such a vector has been generated for each topic, the c-TF-IDF formula
+is used to determine which words of a topic best describe it and are as unique as
+possible for the respective topic. This means that these words occur as often as
+possible in the given topic and as rarely as possible in all others.
+
+For more details of `BERTopic` read the documentation [https://maartengr.github.io/BERTopic/algorithm/algorithm.html](https://maartengr.github.io/BERTopic/algorithm/algorithm.html)
+
+After topic modelling, a given number of keywords is determined for each document
+using the python package `keyBERT`. In doing so, `keyBERT` tries to find possible
+words that have the highest similarity with the document according to cosine similarity.
+For this purpose, the cosine of the angle between the vector of the respective word
+and the vector of the corresponding document is calculated. The higher this value,
+the better the word represents the corresponding document.
 
 
 ## Backend
