@@ -20,7 +20,7 @@ services:
     depends_on:
       - elasticsearch
     command: bash -c "
-        python3 main.py 20220301.simple -n 1000 -k 5 -t 25 &&
+        python3 idt-preprocessing.py -w 20220301.simple -n 1000 -k 10 -t 45 --min 1 --max 2 &&
         python3 create_database.py
       "
     volumes:
