@@ -3,7 +3,7 @@ import os
 import sys
 from datasets import load_dataset, load_from_disk
 import create_dataset as create_ds
-import key_word_extraction as kwe
+import keyword_extraction as kwe
 import topic_modeling as tm
 
 

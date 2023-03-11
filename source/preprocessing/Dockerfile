@@ -19,8 +19,8 @@ RUN bash -c "pip install -qqq --no-cache-dir -r /tmp/requirements.txt 2> /dev/nu
 RUN bash -c "pip install -qqq --upgrade dill==0.3.6 2> /dev/null"
 RUN bash -c "pip install -qqq --upgrade multiprocess==0.70.14 2> /dev/null"
 
-COPY ./main.py ./main.py
-COPY ./key_word_extraction.py ./key_word_extraction.py
+COPY ./idt-preprocessing.py ./idt-preprocessing.py
+COPY ./keyword_extraction.py ./keyword_extraction.py
 COPY ./topic_modeling.py ./topic_modeling.py
 COPY ./create_dataset.py ./create_dataset.py
 COPY ./create_database.py ./create_database.py
