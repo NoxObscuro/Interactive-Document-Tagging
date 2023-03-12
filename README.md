@@ -241,7 +241,7 @@ options:
                         seperated list of stop words or the string 'english' for
                         a pre defined list of english stop words which should be
                         removed before the keywords are extracted or the topic 
-                        representation is created. Default: None (don\'t remove stop
+                        representation is created. Default: None (don't remove stop
                         words)
   --min MIN             The minimal number of words per keywords for the keyword
                         extraction. Default: 1
