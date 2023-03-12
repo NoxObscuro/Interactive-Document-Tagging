@@ -14,6 +14,7 @@ are Alan Kniep, Julia Janßen, Maja Lingl, Valerie Bartel and Vanessa Maeder.
    * [Bokeh for Visualisation](#bokeh-for-visualisation)
 5. [Getting started](#getting-started)
 
+
 ## Use case and functionality
 The goal of our project is to cluster large quantities of documents or articles
 according to their content, and to visualize these clusters to get a fast overview
@@ -22,8 +23,8 @@ tag documents in an interactive way.
 
 For the visualization, we represent the clustered articles in a scatter plot in
 the center of our web application. On the left side, the user can toggle between
-two bar charts: one which visualize the keywords of the documents and one which
-visualize the user applied tags. On the right side the document text and title
+two bar charts: one which visualizes the keywords of the documents and one which
+visualizes the user applied tags. On the right side the document text and title
 (including a direct link to the article) are displayed when selecting only one article.
 If several documents are selected, user-created tags are shown with an option to
 filter the tags, create new ones, apply tags to the selection or remove them.
@@ -34,11 +35,11 @@ This project is divided into three parts: the [preprocessing](#Preprocessing), t
 [backend](#Backend) and the [frontend](#Frontend). 
 
 In preprocessing, the corpus of documents is loaded, clustered according to their
-content, and a fixed number of keywords is extracted for each document. This information
+contents, and a fixed number of keywords is extracted for each document. This information
 is then written to an elasticsearch database.
 
 The backend provides an interface to the database, which is used by the frontend
-to present the data visually to the user. The user can interactively view the data,
+to visually present the data to the user. The user can view the data interactively,
 create tags and assign them to a set of documents.
 
 
@@ -56,7 +57,7 @@ same features as the Wikipedia dataset:
  - id
 
 These features are then extended during preprocessing by a list of keywords and
-information over the assigned topic,includeing the probability with which the document
+information over the assigned topic, including the probability with which the document
 belongs to which topic and the x and y coordinates for the clustering plot.
 
 To do this, we first use a technique called *topic modelling* to determine which
@@ -69,7 +70,7 @@ of text, have to be transformed into a numeric vector space. For this purpose, `
 uses so-called *Sentence Transformers*, which by default use the first 512 tokens
 and generate vectors with several hundred dimensions.
 
-2. **Dimension Reduction**: In order to cluster the documents in a senseful way,
+2. **Dimension Reduction**: In order to cluster the documents in a meaningful way,
 the vectors generated in the previous step have to be transformed into a smaller,
 here two-dimensional, vector space. For this purpose, `UMAP` (**U**niform **M**anifold
 **A**pproximation and **P**rojection) is used because, according to the author of
@@ -105,6 +106,7 @@ the better the word represents the corresponding document.
 For more information on `keyBERT` check  [https://maartengr.github.io/KeyBERT/](https://maartengr.github.io/KeyBERT/)
 
 
+
 ## Backend
 The backend should manage, persist and read data. It is the interface to the database
 for the frontend.
@@ -124,7 +126,6 @@ Databasemodel:
 
 
 
-
 ## Frontend
 ### Languages and Tools
 **Python**
@@ -137,11 +138,11 @@ Databasemodel:
 
 ### Bokeh for Visualisation
 Bokeh is a python libary that renders its graphics by using JavaScrip and HTML. This
-is a contrast to Mathplotlib and Seaborn, which are often used to visualize code
-written in python. A big advantage of bokeh is it's possibility to include interactions,
+is in contrast to Mathplotlib and Seaborn, which are often used to visualize code
+written in python. A big advantage of bokeh is its possibility to include interactions,
 which makes it a great tool for exploring and understanding data. By using JavaScript
-and HTML for the rendering of the visualization and webpage and python for datamanipulation,
-bokeh lets one profit from the best of both languages. Bokeh also offers another
+and HTML for the rendering of the visualization and webpage and python for data manipulation,
+bokeh enables us to profit from the best of both languages. Bokeh also offers another
 great feature: The bokeh server makes it possible to also write callbacks in python
 and to show the plots directly in a webapp.
 
@@ -150,41 +151,41 @@ and to show the plots directly in a webapp.
 | --- | --- |
 | ![Tags](screenshots/Screenshot-Tags.png "Tag Bar Chart") | ![Document_View](screenshots/Screenshot-Document_View.png "Document View") |
 
-- **The Cluster:** The cluster visualises the topic modelling in a two dimensional
+- **The Cluster:** The cluster visualizes the topic modelling in a two dimensional
 graph, where each cluster has a colour and topic consisting of three identifiers
 and a probability, that describes the certainty with which a document is assigned
 to a cluster. The topic can be seen by hovering over the document. Grey coloured
 documents are outliers, that have not been assigned a topic. The cluster has a menu
 with tools such as zoom and selection tools. The selection influences what is visible
-on the right side of the page and what bars are shown in the barcharts to the left.
+on the right side of the page and what bars are shown in the bar charts to the left.
 
 - **Tags and Text:** When more than a single article is selected, the tags menu
 is shown. It gives users the option to manually assign a tag to certain documents,
-as well as create new tags. (while there is the option to add a tag describtion
-it is not yet used.) The tag list is sorted by active tags first and alphabetically
+as well as create new tags (while there is the option to add a tag describtion
+it is not yet used). The tag list is sorted by active tags first and alphabetically
 second. The existing tags can be filtered via the search bar above the menu. If
 one article is selected, its title and text is shown instead of the tag menu.
 
-- **The barcharts:** The two barcharts show keyword and tag statistics, with exactly
-one being visible at a time. The keyword barchart shows the first hundred most common
+- **The bar charts:** The two bar charts show keyword and tag statistics, with exactly
+one being visible at a time. The keyword bar chart shows the hundred most common
 keywords on the y-axis and each of its amounts on the x-axis, sorted by amount.
 On selection, the bar chart changes to show the keywords of the selection, as well
-as the remaining ammount that is not selected. The bars are sorted by amounts in
+as the remaining amount that is not selected. The bars are sorted by amounts in
 the selection first and amounts overall second. The tag chart works accordingly.
-It shows a maximum amount of one hundred tags on the y-achsis and the amount of
+It shows a maximum amount of one hundred tags on the y-axis and the amount of
 documents that have the tag assigned on the x-axis. It changes each time a selection
-is made, to show the tags in the selected documents and updates when changes to the
-tags are made via the tag menu.
+is made, to show the tags in the selected documents and updates when the tags are
+changed via the tag menu.
 
 
 ## Getting started
 ### Setup
 Before you can use this tool you need the docker images for the web-app and the
 preprocessing you also need a import, export and database directory which are
-mounted by the preprocessing and and web-app docker container. 
+mounted by the preprocessing and web-app docker container. 
 
 You can build the docker-images and directories by hand or use the provided `setup.sh`
-script to do it for you. Use the `setup.sh` script if you dont need sudo privileges
+script to do it for you. Use the `setup.sh` script if you don't need sudo privileges
 to run `docker` (default on *macOS* and *windows*) or the `setup-sudo.sh` script
 if you need sudo to run docker commands (default on *linux*), but don't run the script
 with sudo or as root unless you want the import, export and database ddirectory
@@ -199,7 +200,7 @@ Replace the `/path/to/repo` with a path to your local version of this repository
 The build process of this image may take multiple minutes. In the meantime you can
 create the `import`, `export` and `database` directory inside the application directory
 of your local Version of this repository. In theory you can create those three directories
-every where you want and can name them like you see fit, but then you have to adjust
+anywhere you want and can name them as you see fit, but then you have to adjust
 the path in the docker-compose.yml accordingly. 
 
 Once the docker image is built you can start building the docker image for the
@@ -209,8 +210,8 @@ preprocessing:
 ```
 
 ### Preprocessing
-Before you can start the web-app you need some data in your database, to achieve
-this, you must first run the preprocessing. First customize the docker-compose-preprocessing.yml
+Before you can start the web-app you need some data in your database. To achieve
+this, you must first run the preprocessing. First, customize the docker-compose-preprocessing.yml
 located in the application directory of this repository. Change the command line
 parameters in line 23 after `idt-preprocessing.py` to fit your needs. Usage:
 ```
@@ -253,12 +254,12 @@ options:
   -L, --lemmatization   Should lemmatization be applied before the creation of the
                         topic representation. Default: False
 ```
-After you are satisfied with the parameters, start the preprocessing with the following
-command.
+Second, after you are satisfied with the parameters, start the preprocessing with
+the following command.
 ```
 # docker compose -f <path/to/repository>/application/docker-compose-preprocessing.yml up
 ```
-Preprocessing, depending on the amount of data to be processed, can take anywhere
+Depending on the amount of data to be processed, the preprocessing can take anywhere
 from a few minutes to several days. After the preprocessing is finished successfully
 indicated by the line
 ```
