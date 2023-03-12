@@ -3,6 +3,8 @@ This project was created as part of the project "Anwendungen der künstlichen In
 in the winter semester 2022/2023 at the University of Hamburg. Authors of this project
 are Alan Kniep, Julia Janßen, Maja Lingl, Valerie Bartel and Vanessa Maeder.
 
+![Demo](screenshots/demo.gif "Demo")
+
 ## Outline
 1. [Use case and functionality](#use-case-and-functionality)
 2. [Preprocessing](#preprocessing)
@@ -26,7 +28,7 @@ visualize the user applied tags. On the right side the document text and title
 If several documents are selected, user-created tags are shown with an option to
 filter the tags, create new ones, apply tags to the selection or remove them.
 
-![Screenshot of the web application](screenshots/Mockup1.jpg "Screenshot of the web application")
+![Mockup of application](screenshots/Mockup1.jpg "Mockup of the application")
 
 This project is divided into three parts: the [preprocessing](#Preprocessing), the 
 [backend](#Backend) and the [frontend](#Frontend). 
@@ -144,6 +146,10 @@ great feature: The bokeh server makes it possible to also write callbacks in pyt
 and to show the plots directly in a webapp.
 
 ### Visualization
+| ![Overview](screenshots/Screenshot-Overview.png "Overview") | ![Keywords](screenshots/Screenshot-Keywords.png "Keywords Bar Chart") |
+| --- | --- |
+| ![Tags](screenshots/Screenshot-Tags.png "Tag Bar Chart") | ![Document_View](screenshots/Screenshot-Document_View.png "Document View") |
+
 - **The Cluster:** The cluster visualises the topic modelling in a two dimensional
 graph, where each cluster has a colour and topic consisting of three identifiers
 and a probability, that describes the certainty with which a document is assigned
