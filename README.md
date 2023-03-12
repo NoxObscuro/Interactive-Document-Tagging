@@ -133,15 +133,13 @@ As Elasticsearch is used for the Database, the [low-level python client for ES](
 
 ### Visualization
 
-The cluster:
-The cluster visualises the topic modelling in a two dimensional graph, where each cluster has a colour and topic consisting of three identifiers and a probability, that describes the certainty with which a document is assigned to a cluster. The topic can be seen ba hovering over the document. Grey coloured documents are outliers, that have not been assigned a topic.
+- **The Cluster:** The cluster visualises the topic modelling in a two dimensional graph, where each cluster has a colour and topic consisting of three identifiers and a probability, that describes the certainty with which a document is assigned to a cluster. The topic can be seen ba hovering over the document. Grey coloured documents are outliers, that have not been assigned a topic.
 The cluster has a menu with tools such as zoom and selection tool. The selection influences what is visible on the right side of the page and what bars are shown in the barcharts.
 
-Tags and text:
-When more than a single article is selected, the tags menu is shown. It gives users the option to manually assign a tag to certain documents, as well as create new tags. (while there is the option to add a tag describtion it is not yet used.) The tag list is sorted by active tags first and alphabetically second. The existing tags can be filtered via the search bar above the menu.
+- **Tags and Text:** When more than a single article is selected, the tags menu is shown. It gives users the option to manually assign a tag to certain documents, as well as create new tags. (while there is the option to add a tag describtion it is not yet used.) The tag list is sorted by active tags first and alphabetically second. The existing tags can be filtered via the search bar above the menu.
 If one article is selected, its title and text is shown instead
 
-The barcharts:
+- **The barcharts:**
 The two barcharts show keyword and tag statistics, with exactly one being visible at a time. 
 The keyword barchart first shows the hundred most common keywords on the y-achsis and each of its amounts on the x-achsis, sorted by amount. On selection, the bar chart changes to show the keywords of the selection, as well as the amount remaining that is not selected. The bars are sorted by amounts in the selection first and amounts overall second.
 The tag chart works accordingly. It shows a maximum amount of one hundred tags on the y-achsis and the amount of documents that have the tag assigned on the x-achsis. It changes each time a  selection is made, to show the tags in the selected documents and updates when changes to the tags are made via the tag menu.
