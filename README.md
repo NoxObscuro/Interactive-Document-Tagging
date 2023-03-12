@@ -175,7 +175,7 @@ options:
                         Select only the first n datapoints of the dataset. Set to
                         0 to use all (Default)
   -t t, --topics t      If there BERTopic genereates more than t Topics let BERTopic
-                        iteratively merger the to most similar topics until there
+                        iteratively merges the two most similar topics until there
                         are only t Topics left.Set to 0 for a dynamic ammount (Default)
   -k k, --keywords k    Specifies that k keywords are to be created per document.
                         Default: 5
@@ -216,7 +216,7 @@ you can remove the docker container with
 ### Web Application
 As with preprocessing, the docker image must first be built:
 ```
-# docker build -t idt-app /path/to/repo/source/web-app 
+# docker build -t idt-app </path/to/repo>/source/web-app 
 ```
 While building the docker image you can modify the `docker-compose.yml` located
 in the `application` directory. All you need to do here is to change the path before
@@ -229,7 +229,7 @@ that by running
 # docker ps
 ```
 If the database was successfully filled with data using the Docker container of
-the preprocessing and the container of the preprocessing is no longer running, you
+the preprocessing, terminate the container of the preprocessing so that it is no longer running. Then you
 can start the Docker container for the frontend with the following command:
 ```
 # docker compose -f <path/to/repository>/application/docker-compose.yml up -d
