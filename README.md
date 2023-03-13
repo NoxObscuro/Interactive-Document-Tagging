@@ -3,7 +3,7 @@ This project was created as part of the project "Anwendungen der künstlichen In
 in the winter semester 2022/2023 at the University of Hamburg. Authors of this project
 are Alan Kniep, Julia Janßen, Maja Lingl, Valerie Bartel and Vanessa Maeder.
 
-![Demo](screenshots/demo.gif "Demo")
+![Demo](images/demo.gif "Demo")
 
 ## Outline
 1. [Use case and functionality](#use-case-and-functionality)
@@ -29,7 +29,7 @@ visualizes the user applied tags. On the right side the document text and title
 If several documents are selected, user-created tags are shown with an option to
 filter the tags, create new ones, apply tags to the selection or remove them.
 
-![Mockup of application](screenshots/Mockup1.jpg "Mockup of the application")
+![Mockup of application](images/mockup.jpg "Mockup of the application")
 
 This project is divided into three parts: the [preprocessing](#Preprocessing), the 
 [backend](#Backend) and the [frontend](#Frontend). 
@@ -94,6 +94,8 @@ is used to determine which words of a topic best describes it and are as unique 
 possible for the respective topic. This means that these words occur as often as
 possible in the given topic and as rarely as possible in all others.
 
+![Topic Modeling Pipeline](images/topic_modeling.png "Topic Modeling Pipeline")
+
 For more details of `BERTopic` read the documentation [https://maartengr.github.io/BERTopic/algorithm/algorithm.html](https://maartengr.github.io/BERTopic/algorithm/algorithm.html)
 
 After topic modelling, a given number of keywords is determined for each document
@@ -147,9 +149,9 @@ great feature: The bokeh server makes it possible to also write callbacks in pyt
 and to show the plots directly in a webapp.
 
 ### Visualization
-| ![Overview](screenshots/Screenshot-Overview.png "Overview") | ![Keywords](screenshots/Screenshot-Keywords.png "Keywords Bar Chart") |
+| ![Overview](images/screenshot-overview.png "Overview") | ![Keywords](images/screenshot-keywords.png "Keywords Bar Chart") |
 | --- | --- |
-| ![Tags](screenshots/Screenshot-Tags.png "Tag Bar Chart") | ![Document_View](screenshots/Screenshot-Document_View.png "Document View") |
+| ![Tags](images/screenshot-tags.png "Tag Bar Chart") | ![Document_View](images/screenshot-document_view.png "Document View") |
 
 - **The Cluster:** The cluster visualizes the topic modelling in a two dimensional
 graph, where each cluster has a colour and topic consisting of three identifiers
